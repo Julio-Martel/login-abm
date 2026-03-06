@@ -21,7 +21,7 @@ aplicacion.post('/login',(req,res) => {
             exito: 'El usuario ha sido logeado correctamente'
         })
     } else {
-        res.status(400).json({
+        res.status(404).json({
             error: 'El usuario o password es incorrecto'
         })
     }
