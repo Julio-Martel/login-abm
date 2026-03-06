@@ -8,6 +8,12 @@ aplicacion.get('/login',(req,res) => {
     res.json(usuariosRegistrados);
 })
 
+aplicacion.get('/login/:usuario', (req,res) => {
+    const usuario = req.params.usuario;
+   
+    res.json(usuario)
+})
+
 aplicacion.post('/login',(req,res) => {
     const nuevoUsuario = {
         usuario: req.body.usuario,
