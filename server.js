@@ -4,9 +4,9 @@ const usuariosRegistrados = require('./login/login');
 
 aplicacion.use(express.json());
 
-aplicacion.get('/login',(req,res) => {
+/*aplicacion.get('/login',(req,res) => {
     res.json(usuariosRegistrados);
-})
+})*/
 
 aplicacion.get('/login/:usuario', (req,res) => {
     const usuario = req.params.usuario;
@@ -21,8 +21,10 @@ aplicacion.delete('/login/:usuario', (req,res) => {
 aplicacion.get('/login',(req,res)=>{
     
     const password = req.query.password;
+    const usuario = req.query.usuario;
 
     res.json({
+        usuario: usuario,
         password: password
     })
 
