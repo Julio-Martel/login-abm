@@ -4,15 +4,32 @@ const usuariosRegistrados = require('./login/login');
 
 aplicacion.use(express.json());
 
-aplicacion.get('/login',(req,res) => {
+/*aplicacion.get('/login',(req,res) => {
     res.json(usuariosRegistrados);
-})
+})*/
 
 aplicacion.get('/login/:usuario', (req,res) => {
     const usuario = req.params.usuario;
    
     res.json(usuario)
 })
+
+aplicacion.delete('/login/:usuario', (req,res) => {
+    res.json(usuariosRegistrados)
+})
+
+
+aplicacion.get('/login',(req,res)=>{
+    
+    const password = req.query.password;
+
+    res.json({
+        password: password
+    })
+
+})
+
+
 
 aplicacion.post('/login',(req,res) => {
     const nuevoUsuario = {
